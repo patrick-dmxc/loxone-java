@@ -27,13 +27,16 @@ public class LoxoneApp implements Serializable {
     private final Date lastModified;
     private final MiniserverInfo miniserverInfo;
     private final Map<LoxoneUuid, Control> controls;
+    private final Map<LoxoneUuid, Room> rooms;
 
     @JsonCreator
     public LoxoneApp(@JsonProperty("lastModified") Date lastModified,
                      @JsonProperty("msInfo") MiniserverInfo miniserverInfo,
+                     @JsonProperty("rooms") Map<LoxoneUuid, Room> rooms,
                      @JsonProperty("controls") Map<LoxoneUuid, Control> controls) {
         this.lastModified = requireNonNull(lastModified, "lastModified can't be null");
         this.miniserverInfo = requireNonNull(miniserverInfo, "miniserverInfo can't be null");
+        this.rooms = requireNonNull(rooms, "controls can't be null");
         this.controls = requireNonNull(controls, "controls can't be null");
     }
 
@@ -55,6 +58,10 @@ public class LoxoneApp implements Serializable {
     @NotNull
     public Map<LoxoneUuid, Control> getControls() {
         return controls;
+    }
+    @NotNull
+    public Map<LoxoneUuid, Room> getRooms() {
+        return rooms;
     }
 
     /**
