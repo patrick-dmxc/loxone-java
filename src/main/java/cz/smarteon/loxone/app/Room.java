@@ -13,7 +13,7 @@ import cz.smarteon.loxone.LoxoneUuid;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Room {
 
-    @JsonProperty(value = "uuidAction", required = true)
+    @JsonProperty(value = "uuid", required = true)
     private LoxoneUuid uuid;
 
     @JsonProperty(value = "name", required = true)

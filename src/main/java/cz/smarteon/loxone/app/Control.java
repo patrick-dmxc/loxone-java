@@ -45,6 +45,9 @@ public abstract class Control {
     @JsonProperty(value = "name", required = true)
     protected String name;
 
+    @JsonProperty(value = "room", required = true)
+    protected LoxoneUuid room;
+
     @JsonProperty(value = "isSecured")
     protected boolean secured;
 
@@ -70,6 +73,15 @@ public abstract class Control {
     @NotNull
     public String getName() {
         return name;
+    }
+
+    /**
+     * UUID of the control room - usually localized, non unique
+     * @return control room
+     */
+    @NotNull
+    public LoxoneUuid getRoom() {
+        return room;
     }
 
     /**
